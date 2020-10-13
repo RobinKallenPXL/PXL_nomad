@@ -1,7 +1,7 @@
 #!/bin/sh
-yum install -y docker-ce docker-ce-cli containerd.io
-systemctl enable docker
-systemctl start docker
+sudo yum install -y docker-ce docker-ce-cli containerd.io
+sudo systemctl enable docker
+sudo systemctl start docker
 
 # start nomad
 
