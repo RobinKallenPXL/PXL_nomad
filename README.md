@@ -25,3 +25,7 @@ Once it is finished, you should be able to connect to the vagrant environment th
     $ vagrant ssh
     [vagrant@nomad ~]$
 ```
+
+# Documentatie Opdracht 1
+
+Maken 3 vm's aan in de vagrantfile en maken ook al 3 scripts aan voor de vm's om deze te kunnen configureren en instaleren.
