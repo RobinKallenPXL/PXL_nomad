@@ -28,4 +28,7 @@ Once it is finished, you should be able to connect to the vagrant environment th
 
 # Documentatie Opdracht 1
 
-Maken 3 vm's aan in de vagrantfile en maken ook al 3 scripts aan voor de vm's om deze te kunnen configureren en instaleren.
+Maken de 3 vm's aan in de vagrant file.
+Maken een script aan voor het instaleren van consul en nomad op alle nodes.
+Maken script aan specifiek voor zowel de server als de clients om deze te configureren.
+Zetten de config files van de client en server in de vagrant folder.
