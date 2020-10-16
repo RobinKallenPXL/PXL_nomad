@@ -1,3 +1,5 @@
 #!/bin/sh
-sudo systemctl enable nomadserver.service
-sudo systemctl start nomadserver.service
+sudo cp /vagrant/nomadconfig/server.hcl /etc/nomad.d/nomad.hcl
+
+sudo systemctl enable nomad
+sudo systemctl restart nomad 

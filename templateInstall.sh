@@ -3,7 +3,6 @@ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashi
 sudo yum -y install consul
 sudo yum -y install nomad
 
-sudo systemctl enable nomad
-sudo systemctl start nomad
+
 sudo systemctl enable consul
 sudo systemctl start consul
