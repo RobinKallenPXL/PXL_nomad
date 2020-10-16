@@ -1,6 +1,7 @@
 log_level = "DEBUG"
 
 data_dir = "/opt/nomad/client1"
+bind_addr = "192.168.1.5"
 
 name = "client1"
 client {
