@@ -28,7 +28,26 @@ Once it is finished, you should be able to connect to the vagrant environment th
 
 # Documentatie Opdracht 1
 
-Maken de 3 vm's aan in de vagrant file.
-Maken een script aan voor het instaleren van consul en nomad op alle nodes.
-Maken script aan specifiek voor zowel de server als de clients om deze te configureren.
-Zetten de config files van de client en server in de vagrant folder.
+stap1:
+Mappen en scripts aangemaakt voor het opstarten van de docker containers.
+
+stap2:
+In de scripts begonnen met het installeren van yum-config-manager voor docker, nomad en consul te installeren.
+
+Na yum, docker installeren voor zowel de server als clients. Vervolgens nomad installeren.
+
+stap3:
+Nomad files configureren en op de juiste plaats zetten.
+
+stap4:
+Kijken of alles tot dit punt werkt.
+
+stap5:
+Consul toevoegen, in onze script files consul installeren. Ook extra map maken voor consul files.
+
+stap6:
+Consul config files configureren en op de juiste plaats in onze vm zetten.
+
+stap7:
+Kijken of het werkt aan de hand van "vagrant ssh server -- -L 8500:192.168.1.4:8500" op de browser dan gaan naar localhost:8500.
+Daar kunnen wij dan zien dat de clustering succesvol is gebeurd.
