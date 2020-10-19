@@ -7,6 +7,7 @@ name = "client2"
 client {
         enabled = true
                 servers = ["192.168.1.4:4647"]
+        network_interface = "eth1"
 }
 ports {
         http = 5657
