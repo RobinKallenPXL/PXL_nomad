@@ -16,3 +16,9 @@
   become: yes
   roles:
     - role: software/docker    
+
+- name: installing nomad
+  hosts: servers,clients
+  become: yes
+  roles:
+    - role: software/nomad

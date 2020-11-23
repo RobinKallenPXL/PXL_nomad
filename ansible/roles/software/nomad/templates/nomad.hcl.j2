@@ -1,0 +1,44 @@
+log_level = "DEBUG"
+
+data_dir = "/opt/nomad/server" #verander naar var
+bind_addr = "192.168.1.4" #verander naar var
+
+
+{% if nomad__server == true -%}
+# enable the server
+advertise {
+  # Defaults to the first private IP address.
+  http = {{ ansible_eth1.ipv4.address }}
+  rpc  = {{ ansible_eth1.ipv4.address }}
+  serf = {{ ansible_eth1.ipv4.address }}
+} 
+server {
+    enabled = {{nomad__server}}
+
+    #self-elect
+   
+    bootstrap_expect = 1    
+}
+
+{% else -%}
+
+name = "verander naar var"
+
+client {
+        enabled = true
+                servers = ["192.168.1.4:4647"] #verander naar var x2
+        network_interface = "eth1" #verander naar var
+}
+ports {
+        http = 5656 #verander naar var
+}
+plugin "docker" {
+        config{
+                gc {
+                        dangling_containers {
+                                enabled=false
+                        }
+                }
+        }
+}
+{% endif %}

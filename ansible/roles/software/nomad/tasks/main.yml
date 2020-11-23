@@ -1,0 +1,31 @@
+---
+- name: install epel
+  yum:
+    name: epel-release
+    state: installed
+
+- name: nomad repo
+  yum_repository:
+    name: Hashicorp
+    description: Hashicorp repo
+    baseurl: https://rpm.releases.hashicorp.com/RHEL/$releasever/$basearch/test
+    gpgcheck: yes
+    gpgkey: https://rpm.releases.hashicorp.com/gpg
+
+- name: install nomad
+  yum:
+    name: nomad install
+    state: installed
+  notify: restart nomad
+
+- name: add template config nomad
+  template:
+    src: nomad.hcl.j2
+    dest: /etc/nomad.d/nomad.hcl
+    owner: "nomad"
+    group: "nomad"
+    mode: 0644
+  notify: restart nomad
+
+
+

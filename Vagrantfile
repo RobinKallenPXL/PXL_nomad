@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      ansible.groups = {
        "servers" => ["server"],
        "clients" => ["client1", "client2"],
-       "servers:vars" => {"consul__server" => true}
+       "servers:vars" => {"consul__server" => true, "nomad__server" => true}
      }
      ansible.verbose = '-v'
   end
