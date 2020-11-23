@@ -1,0 +1,19 @@
+# {{ ansible_managed }}
+
+
+data_dir = "/opt/consul"
+client_addr = "0.0.0.0"
+ui = true
+
+bind_addr = "{{ ansible_eth1.ipv4.address }}" 
+{% if consul__server == "true" %}
+
+# server
+bootstrap_expect=1
+server = true
+
+{%else %}
+# client
+retry_join = ["192.168.1.4"]
+
+{% endif %}

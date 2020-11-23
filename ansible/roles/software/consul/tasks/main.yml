@@ -1,0 +1,24 @@
+---
+- name: install epel
+  yum:
+    name: epel-release
+    state: installed
+- name: add repo
+  yum_repository:
+    name: Hashicorp
+    description: Hashicorp repo
+    baseurl: https://rpm.releases.hashicorp.com/RHEL/$releasever/$basearch/test
+    gpgcheck: yes
+    gpgkey: https://rpm.releases.hashicorp.com/gpg
+- name: install consul
+  yum:
+    name: consul
+    state: latest
+- name: configure consul
+  template:
+    src: consul.hcl.j2
+    dest: /etc/consul.d/consul.hcl
+    owner: "root"
+    group: "root"
+    mode: 0664
+  notify: restart consul
