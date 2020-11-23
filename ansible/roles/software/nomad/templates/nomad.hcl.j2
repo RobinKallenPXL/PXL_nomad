@@ -1,16 +1,16 @@
 log_level = "DEBUG"
 
 data_dir = "/opt/nomad/server" #verander naar var
-bind_addr = "192.168.1.4" #verander naar var
+bind_addr = "{{ ansible_eth1.ipv4.address }}" #verander naar var
 
 
-{% if nomad__server == true -%}
+{% if nomad__server == "true" -%}
 # enable the server
 advertise {
   # Defaults to the first private IP address.
-  http = {{ ansible_eth1.ipv4.address }}
-  rpc  = {{ ansible_eth1.ipv4.address }}
-  serf = {{ ansible_eth1.ipv4.address }}
+  http = "{{ ansible_eth1.ipv4.address }}"
+  rpc  = "{{ ansible_eth1.ipv4.address }}"
+  serf = "{{ ansible_eth1.ipv4.address }}"
 } 
 server {
     enabled = {{nomad__server}}
@@ -22,7 +22,7 @@ server {
 
 {% else -%}
 
-name = "verander naar var"
+name = "{{ inventory_hostname_short }}"
 
 client {
         enabled = true
@@ -41,4 +41,4 @@ plugin "docker" {
                 }
         }
 }
-{% endif %}
+{% endif -%}
