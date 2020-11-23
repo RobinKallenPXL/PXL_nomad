@@ -14,9 +14,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     override.vm.box = "visibilityspots/centos-7.x-minimal"
   end
 
-  config.vm.provision "shell", path:"templateInstall.sh"
-
-  
   config.vm.define "server" do |server|
     server.vm.hostname = "server"
     server.vm.network "private_network", ip: "192.168.1.4", virtualbox__intnet: "mynetwork"
@@ -30,7 +27,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     client2.vm.network "private_network", ip: "192.168.1.6", virtualbox__intnet: "mynetwork"
   end
   config.vm.provision "ansible" do |ansible|
-     ansible.playbook = "ansible/playbook.yml"
+     ansible.config_file = "ansible/ansible.cfg"
+     ansible.playbook = "ansible/plays/playbook.yml"
      ansible.groups = {
        "servers" => ["server"],
        "clients" => ["client1, client2"]

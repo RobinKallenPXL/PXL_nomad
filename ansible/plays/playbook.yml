@@ -1,0 +1,6 @@
+---
+- name: playbook for server
+  hosts: servers
+  become: yes
+  roles:
+    - role: software/crond
