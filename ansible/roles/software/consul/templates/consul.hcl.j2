@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
 
 
-data_dir = "/opt/consul"
+data_dir = "{{ consul__data_dir }}"
 client_addr = "0.0.0.0"
 ui = true
 
@@ -14,6 +14,6 @@ server = true
 
 {%else %}
 # client
-retry_join = ["192.168.1.4"]
+retry_join = ["{{ consul__server_addr }}"]
 
 {% endif %}
