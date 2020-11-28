@@ -1,7 +1,7 @@
 log_level = "DEBUG"
 
-data_dir = "/opt/nomad/server" #verander naar var
-bind_addr = "{{ ansible_eth1.ipv4.address }}" #verander naar var
+data_dir = "/opt/nomad/server" 
+bind_addr = "{{ ansible_eth1.ipv4.address }}" 
 
 
 {% if nomad__server == "true" -%}
@@ -26,12 +26,11 @@ name = "{{ inventory_hostname_short }}"
 
 client {
         enabled = true
-                servers = ["192.168.1.4:4647"] #verander naar var x2
-        network_interface = "eth1" #verander naar var
+                servers = ["192.168.1.4:4647"] 
+        network_interface = "eth1" 
 }
 ports {
-        http = 5656 #verander naar var
-}
+        http = 5656
 plugin "docker" {
         config{
                 gc {
