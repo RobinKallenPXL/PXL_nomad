@@ -27,5 +27,11 @@
     mode: 0644
   notify: restart nomad
 
+- name: set address for use in nomad
+  lineinfile:
+    path: ~/.bashrc
+    line: export NOMAD_ADDR=http://{{ ansible_eth1.ipv4.address }}:4646
+    create: yes
+  become: no
 
 
