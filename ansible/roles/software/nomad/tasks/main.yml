@@ -34,4 +34,9 @@
     create: yes
   become: no
 
+- name: make sure nomad is started at system boot
+  service:
+      name: nomad 
+      state: started 
+      enabled: yes
 

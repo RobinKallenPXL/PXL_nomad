@@ -22,3 +22,9 @@
     group: "root"
     mode: 0664
   notify: restart consul
+
+- name: make sure consul is started at system boot
+  service:
+      name: consul # required. Name of the service.
+      state: started 
+      enabled: yes
