@@ -1,9 +1,9 @@
 ---
-- name: playbook for server
-  hosts: servers
-  become: yes
-  roles:
-    - role: software/crond
+# - name: playbook for server
+#   hosts: servers
+#   become: yes
+#   roles:
+#     - role: software/crond
     
 - name: installing consul
   hosts: servers,clients
